@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hritik V. - Full Stack Java Developer Portfolio</title>
+    <!-- Bootstrap 5 CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts: Inter & Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@600;800;900&display=swap"
+        rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --dark-bg: #121212;
+            --dark-card: #1a1a1a;
+            --accent-orange: #df5a3a;
+            --accent-hover: #c84a2c;
+            --muted-text: #888888;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .display-font {
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .bg-darkBg {
+            background-color: var(--dark-bg);
+        }
+
+        .bg-darkCard {
+            background-color: var(--dark-card);
+        }
+
+        .text-accentOrange {
+            color: var(--accent-orange) !important;
+        }
+
+        .bg-accentOrange {
+            background-color: var(--accent-orange) !important;
+        }
+
+        .bg-accentOrange:hover {
+            background-color: var(--accent-hover) !important;
+        }
+
+        .border-accentOrange {
+            border-color: var(--accent-orange) !important;
+        }
+
+        .text-mutedText {
+            color: var(--muted-text);
+        }
+
+        /* Custom Glowing Background Circle */
+        .hero-glow {
+            background: radial-gradient(circle, rgba(223, 90, 58, 0.45) 0%, rgba(26, 26, 26, 0) 70%);
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #121212;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #333;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #df5a3a;
+        }
+
+        .custom-card {
+            background-color: var(--dark-card);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .custom-card:hover {
+            border-color: rgba(223, 90, 58, 0.4);
+        }
+
+        .form-control,
+        .form-control:focus {
+            background-color: #1a1a1a;
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .form-control:focus {
+            border-color: var(--accent-orange);
+            box-shadow: none;
+        }
+
+        /* Selection styling */
+        ::selection {
+            background: var(--accent-orange);
+            color: #fff;
+        }
+
+        .navbar-options>a:hover {
+            color: var(--accent-orange);
+        }
+    </style>
+</head>
+
+<body class="bg-darkBg text-white antialiased">
+
+    <!-- Header / Navbar -->
+    <header class="fixed-top w-100 bg-darkBg border-bottom border-white border-opacity-10"
+        style="backdrop-filter: blur(10px); background-color: rgba(18, 18, 18, 0.9) !important;">
+        <div class="container d-flex align-items-center justify-content-between py-3">
+            <!-- Logo -->
+            <a href="#"
+                class="display-font text-2xl font-black text-white text-decoration-none text-uppercase tracking-wider fw-bold"
+                style="font-size: 24px; letter-spacing: 3px;">
+                JAVA<span class="text-accentOrange"> PORTIX</span>
+            </a>
+
+            <!-- Desktop Nav -->
+            <nav class="d-none d-md-flex align-items-center gap-4 text-sm fw-semibold text-mutedText navbar-options">
+                <a href="#works" class="text-decoration-none text-mutedText hover-white transition">WORKS</a>
+                <a href="#timeline" class="text-decoration-none text-mutedText hover-white transition">TIMELINE</a>
+                <a href="#about" class="text-decoration-none text-mutedText hover-white transition">ABOUT</a>
+                <a href="#skills" class="text-decoration-none text-mutedText hover-white transition">SKILLS</a>
+                <!-- <a href="#contact" class="text-decoration-none text-mutedText hover-white transition">CONTACT</a> -->
+            </nav>
+
+            <!-- Let's Talk CTA -->
+            <div class="d-none d-md-flex align-items-center">
+                <a href="#contact"
+                    class="bg-accentOrange text-white px-4 py-2 rounded-pill text-xs fw-bold text-uppercase text-decoration-none d-flex align-items-center gap-2 shadow-sm">
+                    LET'S TALK <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button class="d-md-none text-white border-0 bg-transparent fs-4" type="button" data-bs-toggle="collapse"
+                data-bs-target="#mobileMenu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Collapse -->
+        <div class="collapse d-md-none bg-darkCard border-bottom border-white border-opacity-10 px-4 py-4"
+            id="mobileMenu">
+            <div class="d-flex flex-column gap-3 navbar-options">
+                <a href="#works" class="text-decoration-none text-mutedText fw-semibold">WORKS</a>
+                <a href="#timeline" class="text-decoration-none text-mutedText fw-semibold">TIMELINE</a>
+                <a href="#about" class="text-decoration-none text-mutedText fw-semibold">ABOUT</a>
+                <a href="#skills" class="text-decoration-none text-mutedText fw-semibold">SKILLS</a>
+                <!-- <a href="#contact" class="text-decoration-none text-mutedText fw-semibold">CONTACT</a> -->
+                <a href="#contact"
+                    class="btn bg-accentOrange text-white rounded-pill text-uppercase fw-bold py-2 w-100">LET'S TALK</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative pt-5 pb-5 min-vh-100 d-flex flex-column justify-content-between overflow-hidden"
+        style="margin-top: 40px;">
+        <div class="container my-auto">
+            <div class="row align-items-center g-5">
+                <!-- Left Info Column -->
+                <div class="col-lg-7 space-y-4">
+                    <!-- Subtitle Badge -->
+                    <div class="d-flex align-items-center gap-2 mb-3">
+                        <span class="d-inline-block rounded-1"
+                            style="width: 10px; height: 10px; background-color: var(--accent-orange);"></span>
+                        <span class="text-xs text-uppercase tracking-wider fw-bold text-accentOrange">FULL STACK JAVA
+                            ARCHITECT</span>
+                    </div>
+
+                    <!-- Main Tagline -->
+                    <h1 class="display-font fw-extrabold text-uppercase lh-1 mb-4 fw-bolder"
+                        style="font-size: clamp(2.5rem, 5vw, 5.5rem);">
+                        <span class="text-white">CODE</span> <span class="text-mutedText">THAT POWERS</span><br>
+                        <span class="text-mutedText">SCALABLE</span> <span class="text-white">APPS</span>
+                    </h1>
+
+                    <!-- Short Bio -->
+                    <p class="text-mutedText fs-6 fs-md-5 max-w-xl fw-normal lh-base mb-4">
+                        Building robust, enterprise-grade backend systems with Java & Spring Boot, combined with modern,
+                        high-performance web frontends. Turning complex logic into seamless experiences.
+                    </p>
+
+                    <!-- Floating Hire Me Badge positioned near hero -->
+                    <div class="d-flex align-items-center gap-4 pt-2">
+                        <a href="#contact"
+                            class="rounded-circle bg-accentOrange text-white d-flex flex-column align-items-center justify-content-center text-center text-decoration-none fw-bold text-uppercase p-3 shadow-lg"
+                            style="width: 130px; height: 130px; transition: transform 0.3s;"
+                            onmouseover="this.style.transform='scale(1.05)'"
+                            onmouseout="this.style.transform='scale(1)'">
+                            <span style="font-size: 0.75rem;">HIRE ME</span>
+                            <span style="font-size: 0.75rem;">NOW</span>
+                        </a>
+                        <div class="text-mutedText small">
+                            <p class="fw-semibold text-white mb-1">Fresh Graduate & Aspiring Full Stack Java Developer
+                            </p>
+                            <p class="mb-0">Passionate in Core Java, Spring Boot, OOP, SQL & Responsive Web
+                                Development.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Portrait Column with Glowing Circle Backdrop -->
+                <div class="col-lg-5 position-relative d-flex justify-content-center align-items-center">
+                    <!-- Glowing Backdrop -->
+                    <div class="position-absolute rounded-circle hero-glow"
+                        style="width: 380px; height: 380px; z-index: 0;"></div>
+
+                    <!-- Circular Portrait Image Container -->
+                    <div class="position-relative rounded-circle overflow-hidden d-flex justify-content-center shadow-lg bg-darkCard"
+                        style="width: 370px; height: 370px; z-index: 1; border: 4px solid rgb(61, 61, 61);">
+                        <img src="myImage.png" alt="Alex Morgan - Full Stack Java Developer"
+                            class="  object-fit-cover filter-grayscale"
+                            style="width: 100%; height: auto; margin-top: auto; position: relative; padding: 60px; top: -120px; filter: grayscale(100%) contrast(125%); transition: filter 0.7s;"
+                            onmouseover="this.style.filter='grayscale(0%)'"
+                            onmouseout="this.style.filter='grayscale(100%) contrast(125%)'">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Large Bottom Name Banner -->
+        <div class="w-100 overflow-hidden text-nowrap opacity-75 select-none mt-4">
+            <div class="container px-3">
+                <h2 class="display-font fw-black text-uppercase tracking-tighter m-0 text-center text-lg-start"
+                    style="font-size: clamp(3rem, 10vw, 9rem); background: linear-gradient(90deg, #ffffff 0%, #888888 50%, rgba(223,90,58,0.4) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                    HRITIK VARMA
+                </h2>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-5 bg-darkCard border-top border-bottom border-white border-opacity-5"
+        style="background-color: rgba(26, 26, 26, 0.5) !important;">
+        <div class="container py-5">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-5">
+                    <div class="d-flex align-items-center gap-2 mb-3">
+                        <span class="d-inline-block rounded-1"
+                            style="width: 10px; height: 10px; background-color: var(--accent-orange);"></span>
+                        <span class="text-xs text-uppercase tracking-wider fw-bold text-accentOrange">ABOUT ME</span>
+                    </div>
+                    <h2 class="display-font fs-2 fs-lg-1 fw-extrabold text-uppercase mb-4">
+                        TURNING <span class="text-accentOrange">CODE </span>INTO SEAMLESS WEB APPLICATIONS
+                    </h2>
+                    <p class="text-mutedText lh-base mb-4">
+                        I am a passionate and dedicated Full-Stack Java Web Developer and a recent Bachelor of Computer
+                        Applications (BCA) Graduate ready to build scalable enterprise solutions. With a strong
+                        foundation in Object-Oriented Programming, Core Java, Spring Boot, and database management, I
+                        specialize in turning complex logic into efficient, user-friendly web applications. Eager to
+                        contribute fresh perspectives, write clean code, and grow within a dynamic development team.
+                    </p>
+                    <div class="row g-4 pt-2">
+                        <div class="col-6">
+                            <h3 class="display-font fs-2 fw-extrabold text-white mb-1">1</h3>
+                            <p class="text-xs text-uppercase tracking-wider text-mutedText mb-0">Full-Stack Project</p>
+                        </div>
+                        <div class="col-6">
+                            <h3 class="display-font fs-2 fw-extrabold text-white mb-1">100%</h3>
+                            <p class="text-xs text-uppercase tracking-wider text-mutedText mb-0">Passion for Java &
+                                Problem Solving</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Highlights Card Grid -->
+                <div class="col-lg-7">
+                    <div class="row g-4">
+                        <div class="col-sm-6">
+                            <div class="custom-card p-4 rounded-4 h-100">
+                                <div class="d-flex align-items-center justify-content-center rounded-3 text-accentOrange fs-4 mb-4"
+                                    style="width: 50px; height: 50px; background-color: rgba(223, 90, 58, 0.1);">
+                                    <i class="fa-solid fa-server"></i>
+                                </div>
+                                <h3 class="display-font fs-5 fw-bold mb-2">Backend Engineering</h3>
+                                <p class="text-mutedText small lh-base mb-0"><span
+                                        style="color: var(--accent-orange);">Core Java</span>, <span
+                                        style="color: var(--accent-orange);">Servlet</span>, <span
+                                        style="color: var(--accent-orange);">JSP</span> and <span
+                                        style="color: var(--accent-orange);">Spring Boot</span>
+                                    development with robust server-side architecture.</p>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="custom-card p-4 rounded-4 h-100">
+                                <div class="d-flex align-items-center justify-content-center rounded-3 text-accentOrange fs-4 mb-4"
+                                    style="width: 50px; height: 50px; background-color: rgba(223, 90, 58, 0.1);">
+                                    <i class="fa-solid fa-database"></i>
+                                </div>
+                                <h3 class="display-font fs-5 fw-bold mb-2">Database Management</h3>
+                                <p class="text-mutedText small lh-base mb-0"><span
+                                        style="color: var(--accent-orange);">MySQL</span> database design, data
+                                    handling, and
+                                    <span style="color: var(--accent-orange);">Hibernate</span> ORM integration for
+                                    persistent storage.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="custom-card p-4 rounded-4 h-100">
+                                <div class="d-flex align-items-center justify-content-center rounded-3 text-accentOrange fs-4 mb-4"
+                                    style="width: 50px; height: 50px; background-color: rgba(223, 90, 58, 0.1);">
+                                    <i class="fa-solid fa-laptop-code"></i>
+                                </div>
+                                <h3 class="display-font fs-5 fw-bold mb-2">Frontend Development</h3>
+                                <p class="text-mutedText small lh-base mb-0"><span
+                                        style="color: var(--accent-orange);">HTML</span>, <span
+                                        style="color: var(--accent-orange);">CSS</span>, <span
+                                        style="color: var(--accent-orange);">JavaScript</span>, <span
+                                        style="color: var(--accent-orange);">jQuery</span> and
+                                    <span style="color: var(--accent-orange);">Bootstrap</span> responsive layouts
+                                    alongside <span style="color: var(--accent-orange);">Thymeleaf</span> templates.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="custom-card p-4 rounded-4 h-100">
+                                <div class="d-flex align-items-center justify-content-center rounded-3 text-accentOrange fs-4 mb-4"
+                                    style="width: 50px; height: 50px; background-color: rgba(223, 90, 58, 0.1);">
+                                    <i class="fa-solid fa-desktop"></i>
+                                </div>
+                                <h3 class="display-font fs-5 fw-bold mb-2">Desktop & Full Stack</h3>
+                                <p class="text-mutedText small lh-base mb-0">Building interactive desktop applications
+                                    using <span style="color: var(--accent-orange);">JavaFX</span> alongside full-stack
+                                    web solutions.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Works / Projects Section -->
+    <section id="works" class="py-5">
+        <div class="container py-5">
+            <div class="row align-items-end mb-5">
+                <div class="col-md-8">
+                    <div class="d-flex align-items-center gap-2 mb-3">
+                        <span class="d-inline-block rounded-1"
+                            style="width: 10px; height: 10px; background-color: var(--accent-orange);"></span>
+                        <span class="text-xs text-uppercase tracking-wider fw-bold text-accentOrange">PORTFOLIO</span>
+                    </div>
+                    <h2 class="display-font fs-2 fs-lg-1 fw-extrabold text-uppercase m-0">
+                        FEATURED <span class="text-accentOrange">PROJECTS</span>
+                    </h2>
+                </div>
+                <div class="col-md-4 mt-3 mt-md-0">
+                    <p class="text-mutedText small m-0">
+                        A curated portfolio featuring an administrative student management portal, an enterprise
+                        inventory control system.
+                    </p>
+                </div>
+            </div>
+
+            <div class="row g-4">
+                <!-- Project 1 -->
+                <div class="col-md-6">
+                    <div class="custom-card rounded-4 overflow-hidden h-15 d-flex flex-column h-100">
+                        <div class="position-relative bg-dark" style="height: 240px;">
+                            <img src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=800&q=80"
+                                alt="Student Management System" class="w-100 h-100 object-fit-cover opacity-75">
+                            <span
+                                class="position-absolute top-0 start-0 m-3 bg-accentOrange text-white text-xs fw-bold px-3 py-1 rounded-pill text-uppercase">
+                                Full Stack Java
+                            </span>
+                        </div>
+                        <div class="p-4 p-md-5 d-flex flex-column justify-content-between flex-grow-1">
+                            <div>
+                                <h3 class="display-font fs-4 fw-bold mb-3">Student Management System</h3>
+                                <p class="text-mutedText small lh-base mb-4">
+                                    A comprehensive web application for institutional administration featuring
+                                    staff directory management, student portal navigation, attendance tracking, and
+                                    role-based access control.
+                                </p>
+                            </div>
+                            <div class="d-flex flex-wrap gap-2 pt-2">
+                                <span class="bg-white bg-opacity-10 text-xs text-mutedText px-3 py-1 rounded-2"
+                                    style="color: var(--accent-orange);">SpringBoot & Thymeleaf</span>
+                                <span class="bg-white bg-opacity-10 text-xs text-mutedText px-3 py-1 rounded-2"
+                                    style="color: var(--accent-orange);">Servlet & JSP</span>
+                                <span class="bg-white bg-opacity-10 text-xs text-mutedText px-3 py-1 rounded-2"
+                                    style="color: var(--accent-orange);">Java</span>
+                                <span class="bg-white bg-opacity-10 text-xs text-mutedText px-3 py-1 rounded-2"
+                                    style="color: var(--accent-orange);">Hibernate ORM</span>
+                                <span class="bg-white bg-opacity-10 text-xs text-mutedText px-3 py-1 rounded-2"
+                                    style="color: var(--accent-orange);">SQL</span>
+                                <span class="bg-white bg-opacity-10 text-xs text-mutedText px-3 py-1 rounded-2"
+                                    style="color: var(--accent-orange);">JavaScript</span>
+                                <span class="bg-white bg-opacity-10 text-xs text-mutedText px-3 py-1 rounded-2"
+                                    style="color: var(--accent-orange);">Bootstrap</span>
+                                <span class="bg-white bg-opacity-10 text-xs text-mutedText px-3 py-1 rounded-2"
+                                    style="color: var(--accent-orange);">CSS</span>
+                                <span class="bg-white bg-opacity-10 text-xs text-mutedText px-3 py-1 rounded-2"
+                                    style="color: var(--accent-orange);">HTML</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+    </section>
+
+    <!-- Timeline / Journey Section styled like the reference image -->
+    <section id="timeline" class="py-5 bg-darkCard text-light position-relative">
+        <div class="container py-5">
+            <div class="text-center mb-5">
+                <span class="text-accentOrange fw-bold tracking-widest small uppercase">TIMELINE & EXPERIENCE</span>
+                <h2 class="display-font display-6 fw-bold mt-2">MY PROFESSIONAL JOURNEY</h2>
+            </div>
+
+            <div class="position-relative timeline-container">
+                <!-- Vertical Center Line with Orange Accent -->
+                <div class="position-absolute start-50 translate-middle-x h-100 d-none d-lg-block"
+                    style="width: 2px; background: linear-gradient(to bottom, #df5a3a, rgba(223, 90, 58, 0.2));"></div>
+
+                <div class="row gy-5">
+                    <div class="col-lg-6 pe-lg-5 text-lg-end">
+                        <div class="p-4">
+                            <span class="text-accentOrange fw-bold fs-5">01</span>
+                            <h3 class="display-font fs-3 fw-bold mt-2 mb-3">GRADUATION</h3>
+                            <p class="text-mutedText small lh-base">Completed a rigorous academic program in Bachelor of
+                                Computer Applications (BCA), passionated in core computer fundamentals,
+                                object-oriented programming, and structured web layouts with modern styling.
+                                Developed a real-time inventory management web app project featuring automated stock
+                                level
+                                tracking, barcode generation, dispatch history logs, and secure user authentication.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 ps-lg-5 d-none d-lg-block"></div>
+
+                    <div class="col-lg-6 pe-lg-5 d-none d-lg-block"></div>
+                    <div class="col-lg-6 ps-lg-5 text-lg-start">
+                        <div class="p-4">
+                            <span class="text-accentOrange fw-bold fs-5">02</span>
+                            <h3 class="display-font fs-3 fw-bold mt-2 mb-3">WORKED 4.5 YEARS AS DESKTOP SUPPORT ENGG.
+                            </h3>
+                            <p class="text-mutedText small lh-base">Worked 4.5 years in
+                                SURYAJIT PUBLICATION PVT as a desktop support engineer
+                                resolving hardware faults, troubleshooting network issues, maintaining IT
+                                infrastructure, managing peripherals, and delivering seamless technical assistance to
+                                ensure high user productivity. Provided comprehensive technical support for desktop
+                                systems, ensuring timely resolution of hardware and software issues. Diagnosed and
+                                troubleshooted technical problems, reducing downtime and improving user productivity.
+                                Installed, configured, and maintained operating systems, applications, and peripheral
+                                devices.
+                                Planned, designed, and installed Local Area Networks (LAN) to meet organizational
+                                requirements, ensuring reliable connectivity. Configured network hardware, including
+                                routers and switches to optimize performance.
+                                Installed and configured CCTV to ensure comprehensive surveillance coverage and
+                                security. Also configured NVR systems for efficient recording and playback of
+                                surveillance footage.
+                                Successfully led multiple teams in organizing and executing online events with multiple
+                                training sessions, ensuring smooth coordination and effective communication. Developed
+                                and implemented strategic plans to achieve event goals.
+                                Implemented and managed Zabbix for comprehensive network and server monitoring in
+                                intranet network, ensuring optimal system performance and uptime. Configured and
+                                customized Zabbix(Monitoring tool) to meet specific organizational needs, including
+                                setting up triggers,
+                                actions, and notifications.
+                                Led the planning and execution of various administrative tasks for events, ensuring
+                                smooth operations and successful outcomes.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 pe-lg-5 text-lg-end">
+                        <div class="p-4">
+                            <span class="text-accentOrange fw-bold fs-5">03</span>
+                            <h3 class="display-font fs-3 fw-bold mt-2 mb-3">FRESHER MILESTONE</h3>
+                            <p class="text-mutedText small lh-base">Certified as a Full-Stack Java Developer,
+                                demonstrating proficiency in enterprise web architecture, database integration,
+                                and dynamic frontend interfaces. Built web projects from scratch, diving
+                                deep into Java ecosystems, database management with MySQL, and responsive frontend
+                                design architectures.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 ps-lg-5 d-none d-lg-block"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-5">
+        <div class="container py-5">
+            <div class="row align-items-end mb-5">
+                <div class="col-md-8">
+                    <div class="d-flex align-items-center gap-2 mb-3">
+                        <span class="d-inline-block rounded-1"
+                            style="width: 10px; height: 10px; background-color: var(--accent-orange);"></span>
+                        <span class="text-xs text-uppercase tracking-wider fw-bold text-accentOrange">TECHNOLOGY
+                            STACK</span>
+                    </div>
+                    <h2 class="display-font fs-2 fs-lg-1 fw-extrabold text-uppercase m-0">
+                        TECHNICAL <span class="text-accentOrange">SKILLS</span>
+                    </h2>
+                </div>
+                <div class="col-md-4 mt-3 mt-md-0">
+                    <p class="text-mutedText small m-0">
+                        Core programming languages, enterprise frameworks, databases, and development tools utilized to
+                        build functional, data-driven web and desktop applications.
+                    </p>
+                </div>
+            </div>
+
+            <div class="row g-4">
+                <!-- Card 1: Java -->
+                <div class="col-6 col-sm-4 col-lg-3">
+                    <div class="custom-card p-4 rounded-4 text-center h-100 group">
+                        <div class="fs-1 text-accentOrange mb-3">
+                            <i class="fa-brands fa-java"></i>
+                        </div>
+                        <h3 class="display-font fs-6 fw-bold mb-1">Java</h3>
+                        <p class="text-xs text-mutedText mb-0">Core OOP</p>
+                    </div>
+                </div>
+
+                <!-- Card 2: Spring Boot -->
+                <div class="col-6 col-sm-4 col-lg-3">
+                    <div class="custom-card p-4 rounded-4 text-center h-100 group">
+                        <div class="fs-1 text-accentOrange mb-3">
+                            <i class="fa-solid fa-seedling"></i>
+                        </div>
+                        <h3 class="display-font fs-6 fw-bold mb-1">Spring Boot</h3>
+                        <p class="text-xs text-mutedText mb-0">Backend Framework</p>
+                    </div>
+                </div>
+
+                <!-- Card 3: Servlet -->
+                <div class="col-6 col-sm-4 col-lg-3">
+                    <div class="custom-card p-4 rounded-4 text-center h-100 group">
+                        <div class="fs-1 text-accentOrange mb-3">
+                            <i class="fa-solid fa-server"></i>
+                        </div>
+                        <h3 class="display-font fs-6 fw-bold mb-1">Servlet</h3>
+                        <p class="text-xs text-mutedText mb-0">Server-Side Component</p>
+                    </div>
+                </div>
+
+                <!-- Card 4: JSP -->
+                <div class="col-6 col-sm-4 col-lg-3">
+                    <div class="custom-card p-4 rounded-4 text-center h-100 group">
+                        <div class="fs-1 text-accentOrange mb-3">
+                            <i class="fa-solid fa-file-code"></i>
+                        </div>
+                        <h3 class="display-font fs-6 fw-bold mb-1">JSP</h3>
+                        <p class="text-xs text-mutedText mb-0">Dynamic Web Pages</p>
+                    </div>
+                </div>
+
+                <!-- Card 5: Thymeleaf -->
+                <div class="col-6 col-sm-4 col-lg-3">
+                    <div class="custom-card p-4 rounded-4 text-center h-100 group">
+                        <div class="fs-1 text-accentOrange mb-3">
+                            <i class="fa-solid fa-leaf"></i>
+                        </div>
+                        <h3 class="display-font fs-6 fw-bold mb-1">Thymeleaf</h3>
+                        <p class="text-xs text-mutedText mb-0">Java Template Engine</p>
+                    </div>
+                </div>
+
+                <!-- Card 6: Hibernate -->
+                <div class="col-6 col-sm-4 col-lg-3">
+                    <div class="custom-card p-4 rounded-4 text-center h-100 group">
+                        <div class="fs-1 text-accentOrange mb-3">
+                            <i class="fa-solid fa-database"></i>
+                        </div>
+                        <h3 class="display-font fs-6 fw-bold mb-1">Hibernate</h3>
+                        <p class="text-xs text-mutedText mb-0">ORM Framework</p>
+                    </div>
+                </div>
+
+                <!-- Card 7: MySQL -->
+                <div class="col-6 col-sm-4 col-lg-3">
+                    <div class="custom-card p-4 rounded-4 text-center h-100 group">
+                        <div class="fs-1 text-accentOrange mb-3">
+                            <i class="fa-solid fa-table"></i>
+                        </div>
+                        <h3 class="display-font fs-6 fw-bold mb-1">MySQL</h3>
+                        <p class="text-xs text-mutedText mb-0">Relational Database</p>
+                    </div>
+                </div>
+
+                <!-- Card 8: JavaFX -->
+                <div class="col-6 col-sm-4 col-lg-3">
+                    <div class="custom-card p-4 rounded-4 text-center h-100 group">
+                        <div class="fs-1 text-accentOrange mb-3">
+                            <i class="fa-solid fa-desktop"></i>
+                        </div>
+                        <h3 class="display-font fs-6 fw-bold mb-1">JavaFX</h3>
+                        <p class="text-xs text-mutedText mb-0">Desktop Apps</p>
+                    </div>
+                </div>
+
+                <!-- Card 9: JavaScript -->
+                <div class="col-6 col-sm-4 col-lg-3">
+                    <div class="custom-card p-4 rounded-4 text-center h-100 group">
+                        <div class="fs-1 text-accentOrange mb-3">
+                            <i class="fa-brands fa-js"></i>
+                        </div>
+                        <h3 class="display-font fs-6 fw-bold mb-1">JavaScript</h3>
+                        <p class="text-xs text-mutedText mb-0">Client Scripting</p>
+                    </div>
+                </div>
+
+                <!-- Card 10: jQuery -->
+                <div class="col-6 col-sm-4 col-lg-3">
+                    <div class="custom-card p-4 rounded-4 text-center h-100 group">
+                        <div class="fs-1 text-accentOrange mb-3">
+                            <i class="fa-solid fa-bolt"></i>
+                        </div>
+                        <h3 class="display-font fs-6 fw-bold mb-1">jQuery</h3>
+                        <p class="text-xs text-mutedText mb-0">JS Library</p>
+                    </div>
+                </div>
+
+                <!-- Card 11: HTML5 -->
+                <div class="col-6 col-sm-4 col-lg-3">
+                    <div class="custom-card p-4 rounded-4 text-center h-100 group">
+                        <div class="fs-1 text-accentOrange mb-3">
+                            <i class="fa-brands fa-html5"></i>
+                        </div>
+                        <h3 class="display-font fs-6 fw-bold mb-1">HTML5</h3>
+                        <p class="text-xs text-mutedText mb-0">Web Markup</p>
+                    </div>
+                </div>
+
+                <!-- Card 12: CSS3 -->
+                <div class="col-6 col-sm-4 col-lg-3">
+                    <div class="custom-card p-4 rounded-4 text-center h-100 group">
+                        <div class="fs-1 text-accentOrange mb-3">
+                            <i class="fa-brands fa-css3-alt"></i>
+                        </div>
+                        <h3 class="display-font fs-6 fw-bold mb-1">CSS3</h3>
+                        <p class="text-xs text-mutedText mb-0">Styling & Layouts</p>
+                    </div>
+                </div>
+
+                <!-- Card 13: Bootstrap -->
+                <div class="col-6 col-sm-4 col-lg-3">
+                    <div class="custom-card p-4 rounded-4 text-center h-100 group">
+                        <div class="fs-1 text-accentOrange mb-3">
+                            <i class="fa-brands fa-bootstrap"></i>
+                        </div>
+                        <h3 class="display-font fs-6 fw-bold mb-1">Bootstrap</h3>
+                        <p class="text-xs text-mutedText mb-0">CSS Framework</p>
+                    </div>
+                </div>
+
+                <!-- Card 14: Visual Studio Code -->
+                <div class="col-6 col-sm-4 col-lg-3">
+                    <div class="custom-card p-4 rounded-4 text-center h-100 group">
+                        <div class="fs-1 text-accentOrange mb-3">
+                            <i class="fa-solid fa-code"></i>
+                        </div>
+                        <h3 class="display-font fs-6 fw-bold mb-1">VS Code</h3>
+                        <p class="text-xs text-mutedText mb-0">Code Editor</p>
+                    </div>
+                </div>
+
+                <!-- Card 15: Apache NetBeans -->
+                <div class="col-6 col-sm-4 col-lg-3">
+                    <div class="custom-card p-4 rounded-4 text-center h-100 group">
+                        <div class="fs-1 text-accentOrange mb-3">
+                            <i class="fa-solid fa-laptop-code"></i>
+                        </div>
+                        <h3 class="display-font fs-6 fw-bold mb-1">Apache NetBeans</h3>
+                        <p class="text-xs text-mutedText mb-0">Java IDE</p>
+                    </div>
+                </div>
+
+                <!-- Card 16: Eclipse IDE -->
+                <div class="col-6 col-sm-4 col-lg-3">
+                    <div class="custom-card p-4 rounded-4 text-center h-100 group">
+                        <div class="fs-1 text-accentOrange mb-3">
+                            <i class="fa-solid fa-cube"></i>
+                        </div>
+                        <h3 class="display-font fs-6 fw-bold mb-1">Eclipse IDE</h3>
+                        <p class="text-xs text-mutedText mb-0">Development Tool</p>
+                    </div>
+                </div>
+
+                <!-- Card 17: MySQL Workbench -->
+                <div class="col-6 col-sm-4 col-lg-3">
+                    <div class="custom-card p-4 rounded-4 text-center h-100 group">
+                        <div class="fs-1 text-accentOrange mb-3">
+                            <i class="fa-solid fa-wrench"></i>
+                        </div>
+                        <h3 class="display-font fs-6 fw-bold mb-1">MySQL Workbench</h3>
+                        <p class="text-xs text-mutedText mb-0">Database GUI Tool</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5 bg-darkCard border-top border-white border-opacity-5"
+        style="background-color: rgba(26, 26, 26, 0.5) !important;">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-lg-5">
+                    <div class="d-flex align-items-center gap-2 mb-3">
+                        <span class="d-inline-block rounded-1"
+                            style="width: 10px; height: 10px; background-color: var(--accent-orange);"></span>
+                        <span class="text-xs text-uppercase tracking-wider fw-bold text-accentOrange">GET IN
+                            TOUCH</span>
+                    </div>
+                    <h2 class="display-font fs-2 fs-lg-1 fw-extrabold text-uppercase mb-4">
+                        LET'S BUILD <span class="text-accentOrange">SOMETHING</span> GREAT TOGETHER
+                    </h2>
+                    <p class="text-mutedText lh-base mb-4">
+                        Have a project in mind, a full-stack opportunity, or want to hire me? Drop me a message and I'll
+                        get back to you promptly.
+                    </p>
+
+                    <div class="vstack gap-4 pt-2">
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="d-flex align-items-center justify-content-center rounded-3 text-accentOrange fs-5 flex-shrink-0"
+                                style="width: 50px; height: 50px; background-color: rgba(223, 90, 58, 0.1);">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-uppercase tracking-wider text-white fw-bold mb-1">Email Me</p>
+                                <p class="text-sm text-mutedText mb-0">varmahritik@gmail.com</p>
+                            </div>
+                        </div>
+
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="d-flex align-items-center justify-content-center rounded-3 text-accentOrange fs-5 flex-shrink-0"
+                                style="width: 50px; height: 50px; background-color: rgba(223, 90, 58, 0.1);">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-uppercase tracking-wider text-white fw-bold mb-1">Call Me</p>
+                                <p class="text-sm text-mutedText mb-0">+91 9081732392</p>
+                            </div>
+                        </div>
+
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="d-flex align-items-center justify-content-center rounded-3 text-accentOrange fs-5 flex-shrink-0"
+                                style="width: 50px; height: 50px; background-color: rgba(223, 90, 58, 0.1);">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-uppercase tracking-wider text-white fw-bold mb-1">Address</p>
+                                <p class="text-sm text-mutedText mb-0">Ishwarkrupa Soc., Arbudanagar, Odhav, Ahmedabad
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="col-lg-7">
+                    <div class="custom-card p-4 p-md-5 rounded-4">
+                        <form id="contact-form" onsubmit="handleFormSubmit(event)" class="vstack gap-4">
+                            <div class="row g-3">
+                                <div class="col-sm-6">
+                                    <label
+                                        class="form-label text-xs text-uppercase tracking-wider fw-bold text-mutedText mb-2">Your
+                                        Name</label>
+                                    <input type="text" required placeholder="John Doe"
+                                        class="form-control rounded-3 py-3 px-3">
+                                </div>
+                                <div class="col-sm-6">
+                                    <label
+                                        class="form-label text-xs text-uppercase tracking-wider fw-bold text-mutedText mb-2">Your
+                                        Email</label>
+                                    <input type="email" required placeholder="john@example.com"
+                                        class="form-control rounded-3 py-3 px-3">
+                                </div>
+                            </div>
+                            <div>
+                                <label
+                                    class="form-label text-xs text-uppercase tracking-wider fw-bold text-mutedText mb-2">Subject</label>
+                                <input type="text" required placeholder="Project Inquiry / Full Stack Role"
+                                    class="form-control rounded-3 py-3 px-3">
+                            </div>
+                            <div>
+                                <label
+                                    class="form-label text-xs text-uppercase tracking-wider fw-bold text-mutedText mb-2">Message</label>
+                                <textarea rows="4" required placeholder="Tell me about your requirements..."
+                                    class="form-control rounded-3 py-3 px-3" style="resize: none;"></textarea>
+                            </div>
+                            <button type="submit"
+                                class="btn bg-accentOrange text-white py-3 rounded-3 text-xs fw-bold text-uppercase tracking-widest shadow-sm w-100">
+                                SEND MESSAGE <i class="fa-solid fa-paper-plane ms-2"></i>
+                            </button>
+                        </form>
+                        <!-- Success Notification Box (No alert()) -->
+                        <div id="form-success"
+                            class="d-none mt-4 p-3 bg-success bg-opacity-10 border border-success border-opacity-30 rounded-3 text-success text-sm text-center fw-semibold">
+                            Thank you! Your message has been successfully sent. I will get back to you shortly.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-5 border-top border-white border-opacity-10 text-center text-mutedText small">
+        <div class="container d-flex flex-column flex-sm-row align-items-center justify-content-between gap-4">
+            <a href="#"
+                class="display-font fs-5 fw-black text-white text-decoration-none text-uppercase tracking-wider">
+                JAVA<span class="text-accentOrange">PORTIX</span>
+            </a>
+            <p class="mb-0">&copy; Hritik Varma. All rights reserved. Built with Bootstrap 5.</p>
+            <div class="d-flex gap-4 fs-5">
+                <a href="#" class="text-mutedText hover-white transition"><i class="fa-brands fa-github"></i></a>
+                <a href="#" class="text-mutedText hover-white transition"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="#" class="text-mutedText hover-white transition"><i class="fa-brands fa-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Contact Form Handler (No alert()) -->
+    <script>
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const successBox = document.getElementById('form-success');
+            successBox.classList.remove('d-none');
+            document.getElementById('contact-form').reset();
+            setTimeout(() => {
+                successBox.classList.add('d-none');
+            }, 6000);
+        }
+    </script>
+</body>
+
+</html>
